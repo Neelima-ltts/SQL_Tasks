@@ -1,1 +1,68 @@
+CREATE DEFINER=root@localhost PROCEDURE getCount()
+BEGIN
+select count(Moviename) from movie where length>18;
+END
+call productioninformation.getCount();
+Output:6
 
+Movienames CREATE DEFINER=root@localhost PROCEDURE getMoviename()
+BEGIN
+select Moviename from movie where Movietype like "drama%";
+END
+call productioninformation.getMoviename();
+out put
+
+Moviename
+'Padmavaat'
+'Badhaai Ho'
+'Rangoon'
+'Bahubali-The_Beginning'
+'Maryada Ramanna'
+'Khaidi No. 150'
+'The Villain'
+
+Details
+CREATE DEFINER=root@localhost PROCEDURE Details()
+BEGIN
+select Moviename from movie where language like "t%";
+END
+call productioninformation.Details();
+
+Moviename
+'Bahubali-The_Beginning'
+'Maryada Ramanna'
+'Khaidi No. 150'
+'Bharath Ane nenu'
+'Gruham '
+'2.0'
+'Aval'
+
+Min Length
+CREATE DEFINER=root@localhost PROCEDURE minlength()
+BEGIN
+select Moviename from movie where length=(select max(length)from movie);
+END
+call productioninformation.minlength();
+
+Moviename
+'Padmavaat'
+'Bahubali-The_Beginning'
+'K G F chapter 1'
+
+Result
+CREATE DEFINER=root@localhost PROCEDURE Result()
+BEGIN
+select * from Productions;
+END
+call productioninformation.Result();
+1010 Hari Om Entertainment Mumbai 2008 Akshay Kumar
+1111 STP chennai 2018 Sree
+1854 Jungle Pictures Mumbai 2014 Vineeth Jain
+1899 Vaicom18Studios Mumbai 2008 Ajith Andhare
+1988 Red Chillies Entertainment Mumbai 2003 Shah Ruck
+2341 CRM Bangalore 2017 Manohar
+6773 Hombale Flims Bangalore 1995 Vijay
+7682 Mythri Movie Makers Hyderabad 2015 Naveen Yerneni
+7882 DVV Entertainments Hyderabad 1993 DVV Danayya
+8892 Lyka Productions Chennai 2014 Subaskaran
+9091 Arkamediaworks Hyderabad 2001 Shobu Yarlagada
